@@ -20,7 +20,6 @@ class hand(object):
 
     def pop(self):
         a_card = self.stock[self.pointer]
-        a_card.visible = True
         print(a_card)
         self.pointer += 1
         return a_card

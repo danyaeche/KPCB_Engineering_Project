@@ -9,7 +9,7 @@ class card(object):
         self.suit = suit
         self.rank = rank
         self.str_rank = ['A ', '2 ', '3 ', '4 ', '5 ', '6 ', '7 ', '8 ', '9 ', '10', 'J ', 'Q ', 'K ']
-        self.str_suit = ['H', 'D', 'C', 'S']
+        self.str_suit = ['H', 'D', 'C', 'S'] #Heart==red Diamond==Red, Clover==Black, Spades==Black
         self.visible = False
 
     def __str__(self):
