@@ -8,13 +8,13 @@ class card(object):
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
-        self.str_rank = ['A ', '2 ', '3 ', '4 ', '5 ', '6 ', '7 ', '8 ', '9 ', '10', 'J ', 'Q ', 'K ']
+        self.str_rank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
         self.str_suit = ['H', 'D', 'C', 'S'] #Heart==red Diamond==Red, Clover==Black, Spades==Black
         self.visible = False
 
     def __str__(self):
         if self.visible:
-            res = (self.str_rank[self.suit], self.str_rank[self.rank])
+            res = (self.str_rank[self.suit], self.str_rank[self.rank][0])
             print (res)
             return res
         else:

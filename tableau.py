@@ -63,14 +63,21 @@ class tableau(object):
         print(self.pile_dict[1])
 
     def valid_transaction(self,from_pile_n, end_pile_n):
+        if len(hand.pile_dict[end_pile_n]) == 0:
+            if hand.pile_dict[from_pile_n].rank == 12:
+                return True
+            else: 
+                return False
         if hand.self_pile[from_pile_n].suit < 3 and self.pile_dict[end_pile_n] > 2:
-            return True
+            if hand.pointer[from_pile_n].rank == hand.pointer[end_pile_n].rank - 1:
+                return True
         elif hand.self_pile[end_pile_n].suit < 3 and self.pile_dict[from_pile_n] > 2:
-            return True
+            if hand.pointer[from_pile_n].rank == hand.pointer[end_pile_n].rank - 1:
+                return True
         else:
             return False
 
-    def add_card_pile(self,pile_number, c):
+    def add_card_pile(self, pile_number, c):
         c.visble
         hand.pile_dict[pile_number].append(c)
 
