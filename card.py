@@ -14,7 +14,7 @@ class card(object):
 
     def __str__(self):
         if self.visible:
-            res = (self.str_rank[self.suit], self.str_rank[self.rank][0])
+            res = (self.str_rank[self.suit], self.str_rank[self.rank])
             print (res)
             return res
         else:

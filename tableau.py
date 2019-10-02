@@ -66,7 +66,7 @@ class tableau(object):
         if len(hand.pile_dict[end_pile_n]) == 0:
             if hand.pile_dict[from_pile_n].rank == 12:
                 return True
-            else: 
+            else:
                 return False
         if hand.self_pile[from_pile_n].suit < 3 and self.pile_dict[end_pile_n] > 2:
             if hand.pointer[from_pile_n].rank == hand.pointer[end_pile_n].rank - 1:
