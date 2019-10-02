@@ -147,5 +147,5 @@ class Foundation(object):
 
     def spades_pop(self, pop):
         a_card = self.spades_pile.pop()
-        self.spades_complete = False 
+        self.spades_complete = False
         return a_card
