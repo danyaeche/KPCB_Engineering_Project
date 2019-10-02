@@ -51,6 +51,10 @@ class Foundation(object):
                 print("the pile must be stack in the correct order -->  A ->  2  -> 3  ->  4  -> "
                       " 5  ->  6  -> 7 -> 8 ->  9 ->  10 ->  J -> Q  -> K")
 
+    def heart_pop(self, pop):
+        a_card = self.heart_pile.pop()
+        self.heart_complete = False
+        return a_card
     '''
     The add_diamond method operates when a card can and how it will be added to the diamond_pile
     1. Checks if the diamond_pile is already complete if it is print out statement to console
@@ -77,6 +81,11 @@ class Foundation(object):
             else:
                 print("the pile must be stack in the correct order -->  A ->  2  -> 3  ->  4  ->  "
                       "5  ->  6  -> 7 -> 8 ->  9 ->  10 ->  J -> Q  -> K")
+
+    def diamond_pop(self, pop):
+        a_card = self.diamond_pile.pop()
+        self.diamond_complete = False
+        return a_card
 
     '''
     The add_clover method operates when a card can and how it will be added to the clover_pile
@@ -105,6 +114,10 @@ class Foundation(object):
                 print("the pile must be stack in the correct order -->  A ->  2  -> 3  ->  4  ->  "
                       "5  ->  6  -> 7 -> 8 ->  9 ->  10 ->  J -> Q  -> K")
 
+    def clover_pop(self, pop):
+        a_card = self.clover_pile.pop()
+        self.clover_complete = False
+        return a_card
     '''
    The add_diamond method operates when a card can and how it will be added to the spades_pile
    1. Checks if the spades_pile is already complete if it is print out statement to console
@@ -131,3 +144,8 @@ class Foundation(object):
             else:
                 print("the pile must be stack in the correct order -->  A ->  2  -> 3  ->  4  ->  "
                       "5  ->  6  -> 7 -> 8 ->  9 ->  10 ->  J -> Q  -> K")
+
+    def spades_pop(self, pop):
+        a_card = self.spades_pile.pop()
+        self.spades_complete = False 
+        return a_card

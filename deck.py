@@ -14,6 +14,7 @@ At initialization, Shuffle the cards in the stack
 class Deck(object):
     def __int__(self):
         self.stock = []
+        self.waste = []
         for i in range(4):
             for j in range(13):
                 c = Card(i, j)
@@ -56,6 +57,39 @@ class Deck(object):
         a_card.visible = False
         print(a_card)
         return a_card
+
+    def add_waste(self):
+        if len(self.stock) == 0:
+            print("There are no more cards in the stack")
+            self.reset_stock_from_waste()
+        else:
+            a_card = self.stock.pop()
+            a_card.visible = True
+            self.waste.append(a_card)
+
+    def waste_reveal(self):
+        if len(self.waste) == 0:
+            print("No more cards in the waste pile")
+        else:
+            a_card = self.waste[-1]
+            print(a_card)
+
+    def waste_draw(self):
+        if len(self.waste) == 0:
+            print("No more cards in the waste pile")
+        else:
+            a_card = self.waste.pop()
+            print(a_card)
+            return a_card
+
+    def reset_stock_from_waste(self):
+        if len(self.waste) == 0:
+            print("No more cards to play")
+        else:
+            for i in range(len(self.waste)):
+                self.waste[i].visible = False
+            self.stock = self.waste
+            self.waste = []
 
 
 
