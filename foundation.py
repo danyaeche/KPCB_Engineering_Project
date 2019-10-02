@@ -1,4 +1,4 @@
-from card import card
+from card import Card
 
 '''
 1. The foundation class takes in no object. 
