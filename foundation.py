@@ -1,4 +1,5 @@
 from card import Card
+# This is the foundation class
 
 '''
 1. The foundation class takes in no object. 

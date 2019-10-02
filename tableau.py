@@ -1,4 +1,4 @@
-from hand import hand
+from deck import hand
 from card import card
 
 
