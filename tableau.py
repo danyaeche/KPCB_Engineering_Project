@@ -1,8 +1,20 @@
-from deck import hand
-from card import card
+from deck import Deck
+from card import Card
+
+# This is the Tableau class for the game
+
+'''
+The class Tableau
+1.At initialization, it creates a seven list for the tableau 
+2.At initialization, it creates a dictionary to keep track of the content for all the list 
+3.At initialization, it ass the appopriate number of cards to each pile and has the last card be visible.
+4.it has three method, one to check if the transaction between on pile to another is valid 
+Another to remove a card from a pile and the card underneath becomes visible 
+Another to add a card to a pile
+'''
 
 
-class tableau(object):
+class Tableau(object):
     def __init__(self):
         self.pile_1 = []
         self.pile_2 = []
@@ -11,85 +23,47 @@ class tableau(object):
         self.pile_5 = []
         self.pile_6 = []
         self.pile_7 = []
-        self.pile_dict = {1:self.pile_1, 2:self.pile_2, 3:self.pile_3, 4:self.pile_4, 5:self.pile_5, 6:self.pile_6, 7:self.pile_7}
+        self.pile_dict = {1: self.pile_1, 2: self.pile_2, 3: self.pile_3, 4: self.pile_4, 5: self.pile_5,
+                          6: self.pile_6, 7: self.pile_7}
 
-    def add_pile_1(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[1].append(x)
+        for i in range(1, 8):
+            for j in range(i):
+                self.pile_dict[i].append(Deck.pop_blind())
+            self.pile_dict[i][-1].visible = True
 
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_2(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[2].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_3(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[3].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_4(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[1].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_5(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[1].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_6(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[1].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def add_pile_7(self, input_card_list):
-        for x in input_card_list:
-            self.pile_dict[1].append(x)
-
-        self.pile_dict[1][-1].visble == True
-        print(self.pile_dict[1])
-
-    def valid_transaction(self,from_pile_n, end_pile_n):
-        if len(hand.pile_dict[end_pile_n]) == 0:
-            if hand.pile_dict[from_pile_n].rank == 12:
+    '''
+    This is a method that check is a move of card from one pile of the tableau to another
+    pile of the tableau is legal 
+    '''
+    def valid_transaction(self, from_pile_n, end_pile_n):
+        if len(self.pile_dict[end_pile_n]) == 0:
+            if self.pile_dict[from_pile_n][-1].rank == 12:
                 return True
             else:
                 return False
-        if hand.self_pile[from_pile_n].suit < 3 and self.pile_dict[end_pile_n] > 2:
-            if hand.pointer[from_pile_n].rank == hand.pointer[end_pile_n].rank - 1:
+        elif self.pile_dict[from_pile_n][-1].suit < 2 and self.pile_dict[end_pile_n][-1] > 1:
+            if self.pile_dict[from_pile_n][-1].rank == self.pile_dict[end_pile_n][-1].rank - 1:
                 return True
-        elif hand.self_pile[end_pile_n].suit < 3 and self.pile_dict[from_pile_n] > 2:
-            if hand.pointer[from_pile_n].rank == hand.pointer[end_pile_n].rank - 1:
+        elif self.pile_dict[from_pile_n][-1].suit > 1 and self.pile_dict[end_pile_n][-1] < 2:
+            if self.pile_dict[from_pile_n][-1].rank == self.pile_dict[end_pile_n][-1].rank - 1:
                 return True
         else:
             return False
 
+    '''
+    This is a method to add a card to a pile 
+    '''
     def add_card_pile(self, pile_number, c):
-        c.visble
-        hand.pile_dict[pile_number].append(c)
+        c.visible = True
+        self.pile_dict[pile_number].append(c)
 
+    '''
+    This is method to remove a card from a pile 
+    '''
     def remove_card_pile(self, pile_number):
-        a_card = hand.pile_dict[pile_number][-1]
-        hand.pile_dict[pile_number] = hand.pile_dict[pile_number][:-1]
-        hand.pile_dict[pile_number][-1].visible
+        if len(self.pile_dict) == 0:
+            print("The pile is empty, no card can be removed from it")
+            return None
+        a_card = self.pile_dict[pile_number].pop()
+        self.pile_dict[pile_number][-1].visible = True
         return a_card
-
-
-
-
-
-
-

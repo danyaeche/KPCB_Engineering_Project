@@ -45,6 +45,18 @@ class Deck(object):
         print(a_card)
         return a_card
 
+    '''
+    The method removed the top card from the deck but face down so content of the card can't be seen 
+    '''
+    def pop_blind(self):
+        if len(self.stock) == 0:
+            print("There are no more cards in the stack")
+            return None
+        a_card = self.stock.pop()
+        a_card.visible = False
+        print(a_card)
+        return a_card
+
 
 
 
