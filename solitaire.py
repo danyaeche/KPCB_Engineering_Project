@@ -8,6 +8,16 @@ class Solitaire(object):
         self.tableau = Tableau()
         self.deck = Deck()
         self.foundation = Foundation()
+        self.game_won = False
 
-    
+    print("Hello, Welcome to Solitaire. This is a game you play by yourself and it's a lot of fun")
+
+    print("Game Begin")
+
+    while self.game_won == False:
+
+
+
+
+
 
